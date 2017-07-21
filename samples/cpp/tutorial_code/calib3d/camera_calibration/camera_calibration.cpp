@@ -171,8 +171,11 @@ public:
             inputCapture >> view0;
             view0.copyTo(result);
         }
-        else if( atImageList < imageList.size() )
-            result = imread(imageList[atImageList++], IMREAD_COLOR);
+        else if (atImageList < imageList.size())
+        {
+            fn = imageList[atImageList++];
+            result = imread(fn, IMREAD_COLOR);
+        }
 
         return result;
     }
@@ -230,6 +233,7 @@ public:
     InputType inputType;
     bool goodInput;
     int flag;
+    string fn;
 
 private:
     string patternToUse;
