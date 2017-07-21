@@ -371,6 +371,9 @@ int main(int argc, char* argv[])
 
                 // Draw the corners.
                 drawChessboardCorners( view, s.boardSize, Mat(pointBuf), found );
+                if (!s.fn.empty()) {
+                    imwrite(s.fn + ".corners.png", view);
+                }
         }
         //! [pattern_found]
         //----------------------------- Output Text ------------------------------------------------
